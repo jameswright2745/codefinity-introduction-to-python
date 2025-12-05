@@ -1,12 +1,11 @@
-# Define a function with a default `discount` argument
-def apply_discount(price, discount=0.10):
-    discounted_price = price * (1 - discount)
-    return discounted_price
+def apply_discount(price, discount=0.05):
+    return price * (1 - discount)
 
-# Call the function without providing a `discount`, using the default value
-default_discount_price = apply_discount(100)
-print(f"Price after applying the default discount: ${default_discount_price}")
+def apply_tax(price, tax=0.07):
+    return price * (1 + tax)
 
-# Call the function with a custom `discount` value
-custom_discount_price = apply_discount(100, 0.20)
-print(f"Price after applying a custom discount: ${custom_discount_price}")
+def calculate_total(price, discount=0.05, tax=0.07):
+    total = apply_tax(price, tax) * (apply_discount(price, discount))
+    return total
+
+print(f"Total cost with the default discount and tax: ${calculate_total(120)}")
